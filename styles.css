@@ -1,0 +1,87 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px;
+    color: #e50914;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 200px;
+    margin: 0 10px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.description {
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+/* Botones de navegación */
+.gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.left-btn {
+    left: 0;
+}
+
+.right-btn {
+    right: 0;
+}
+
+/* Galería sin barra de desplazamiento visible */
+.gallery {
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Ocultar la barra en Firefox */
+    -ms-overflow-style: none; /* Ocultar la barra en Internet Explorer */
+    padding: 20px;
+    scroll-behavior: smooth; /* Desplazamiento suave */
+}
+
+.gallery::-webkit-scrollbar {
+    display: none; /* Ocultar la barra en Chrome, Safari y Opera */
+}
