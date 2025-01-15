@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-D00HBSJDGV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-D00HBSJDGV');
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var scene = document.querySelector("a-scene");
+                var video = document.querySelector("#video");
+
+                // Intentar reproducir cuando la escena esté completamente cargada
+                scene.addEventListener("loaded", function () {
+                    video.muted = false;
+                    video.play().catch(error => {
+                        console.log("Autoplay bloqueado: ", error);
+                    });
+                });
+
+                // Reintentar cuando el video esté listo para reproducirse
+                video.oncanplay = function() {
+                    video.play().catch(error => {
+                        console.log("Autoplay bloqueado: ", error);
+                    });
+                };
+
+                // Detectar el primer clic en el documento para activar el sonido
+                document.addEventListener("click", function enableSound() {
+                video.muted = false; // Activar sonido
+                video.play().catch(error => {
+                    console.log("Error al intentar reproducir con sonido: ", error);
+                });
+                
+                // Remover el evento para que no se ejecute múltiples veces
+                document.removeEventListener("click", enableSound);
+            });
+            });
+        </script>
+</head>
+
+    </head>
+
+    <body>
+        <a-scene>
+            <a-assets>
+                <video id="video" autoplay loop="true" src="https://www.youtube.com/watch?v=hlCWWQvqpRs"> </video>
+            </a-assets>
+            <a-videosphere src="#video"></a-videosphere>
+        </a-scene>
+    </body>
+</html>
