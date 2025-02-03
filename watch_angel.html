@@ -11,12 +11,15 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         model-viewer {
-            width: 100vw;
-            height: 100vh;
-            object-fit: contain;
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: contain
         }
     </style>
 </head>
@@ -24,10 +27,12 @@
 <body>
     <!-- <h2>You are using Augmented Reality ^^</h2> -->
     <model-viewer
-        alt="Love and psyche"
-        src="https://ar-objects-puce.vercel.app/amor_und_psyche.glb"
+        alt="Angel"
+        src="https://ar-objects-puce.vercel.app/angel.glb"
         camera-controls
-        touch-action="pan-y"></model-viewer>
+        touch-action="pan-y"
+        >
+    </model-viewer>
 </body>
 
 </html>
